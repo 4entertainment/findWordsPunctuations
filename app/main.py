@@ -29,6 +29,9 @@ tokenized_words = []
 # Initialize Counters for word frequency analysis
 word_frequency = Counter()
 
+extra_punc = ["''", "``", "==", "==="]
+word_string_punctuation = string.punctuation + ''.join(extra_punc)
+
 # Tokenize the text and perform word frequency analysis (excluding punctuation)
 for df in dataframes:
     for text in df[text_column_name]:
@@ -36,7 +39,7 @@ for df in dataframes:
         words = word_tokenize(text)
 
         # Filter out punctuation marks from words
-        words = [word for word in words if word not in string.punctuation]
+        words = [word for word in words if word not in word_string_punctuation]
 
         # Update word frequency counts
         word_frequency.update(words)
@@ -89,4 +92,3 @@ for i, example in enumerate(tokenized_words[:3]):
 for i, example in enumerate(tokenized_examples[:3]):
     print(f"Example {i + 1}: {example}")
 """
-
