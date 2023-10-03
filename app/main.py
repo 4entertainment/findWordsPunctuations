@@ -45,7 +45,17 @@ for df in dataframes:
         word_frequency.update(words)
 
         # Append tokenized words to the list
+        tokenized_words.append(words)
+
+        """
+        extend: example_1[:i]
+        append: example[:i]       
+        """
+        
+        """
+        # Append tokenized words to the list
         tokenized_words.extend(words)
+        """
 
 # Calculate the total word count
 total_word_count = sum(word_frequency.values())
